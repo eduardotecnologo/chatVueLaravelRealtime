@@ -2,10 +2,29 @@
     <div>
         <messages></messages>
         <div class="form-group">
-            <textarea class="form-control">
+            <textarea v-model="body" class="form-control">
 
             </textarea>
         </div>
-        <button class="btn btn-success">Enviar</button>
+        <button @click.prevent="sendMessage" class="btn btn-success">Enviar</button>
     </div>
 </template>
+
+<script>
+    export default {
+        data(){
+            return {
+                body:''
+            }
+        },
+        methods:{
+            sendMessage(){
+                this.$store.dispatch('storageMessage',
+                    {
+                        body: this.body
+                    });
+                /*alert('sendMessage Manolo')*/
+            }
+        }
+    }
+</script>
