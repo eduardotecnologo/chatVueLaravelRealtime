@@ -1927,9 +1927,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    keyDownMessage: function keyDownMessage(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        this.sendMessage();
+      }
+    },
     sendMessage: function sendMessage() {
+      var _this = this;
+
       this.$store.dispatch('storageMessage', {
         body: this.body
+      }).then(function () {
+        return _this.body = '';
       });
       /*alert('sendMessage Manolo')*/
     }
@@ -37546,6 +37556,7 @@ var render = function() {
           staticClass: "form-control",
           domProps: { value: _vm.body },
           on: {
+            keydown: _vm.keyDownMessage,
             input: function($event) {
               if ($event.target.composing) {
                 return

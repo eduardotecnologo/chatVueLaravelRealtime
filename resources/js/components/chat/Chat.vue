@@ -2,7 +2,7 @@
     <div>
         <messages></messages>
         <div class="form-group">
-            <textarea v-model="body" class="form-control">
+            <textarea @keydown="keyDownMessage" v-model="body" class="form-control">
 
             </textarea>
         </div>
@@ -18,11 +18,17 @@
             }
         },
         methods:{
+            keyDownMessage(e){
+                if(e.keyCode === 13 && !e.shiftKey){
+                    e.preventDefault()
+                    this.sendMessage()
+                }
+            },
             sendMessage(){
                 this.$store.dispatch('storageMessage',
                     {
                         body: this.body
-                    });
+                    }).then(() => this.body = '');
                 /*alert('sendMessage Manolo')*/
             }
         }
