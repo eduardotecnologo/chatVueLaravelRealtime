@@ -29,7 +29,6 @@
                     {
                         body: this.body
                     }).then(() => this.body = '');
-                /*alert('sendMessage Manolo')*/
             }
         }
     }
