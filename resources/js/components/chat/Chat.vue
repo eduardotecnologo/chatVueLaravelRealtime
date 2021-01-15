@@ -5,7 +5,7 @@
             <textarea @keydown="keydownMessage" v-model="body" class="form-control"></textarea>
         </div>
 
-        <button :disabled="loading" @click.prevent="sendMessage" class="btn btn-success">
+        <button :disabled="loading" @click.prevent="sendMessage" class="btn btn-dark">
             <pulse-loader
                 :loading="loading"
                 :color="'#FFF'"

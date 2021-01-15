@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'ChatRealTime'),
+    'name' => env('APP_NAME', 'EazyCapRate'),
 
     /*
     |--------------------------------------------------------------------------

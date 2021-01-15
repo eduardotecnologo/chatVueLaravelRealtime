@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function (){
     Route::get('chat', 'Chat\ChatController@index')->name('chat.index');
+    Route::get('chat/messages', 'Chat\ChatController@messages')->name('chat.messages');
     Route::post('chat/message', 'Chat\ChatController@store')->name('chat.store');
 });
 
