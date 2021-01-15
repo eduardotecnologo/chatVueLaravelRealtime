@@ -10,7 +10,7 @@ export default {
     },
     actions:{
         // Ajax
-        storageMessage(context, params){
+        storeMessage(context, params){
             return axios.post('/chat/message',params)
                 .then(response => console.log(response))
                     .catch(() => console.log('error'))
