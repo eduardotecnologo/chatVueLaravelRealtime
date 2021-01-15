@@ -1,6 +1,6 @@
 <template>
     <div class="message">
-        {{ message.user.name }} disse: {{ message.body }}
+      {{ message.user.name }}<strong>disse:</strong>  {{ message.body }}
     </div>
 </template>
 

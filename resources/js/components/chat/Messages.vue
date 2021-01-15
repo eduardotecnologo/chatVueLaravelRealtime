@@ -1,5 +1,5 @@
 <template>
-    <div class="messages">
+    <div class="messages" ref="messages">
         <rise-loader
             :loading="loading"
             :color="'#000'"
@@ -30,7 +30,8 @@ import RiseLoader from 'vue-spinner/src/RiseLoader.vue'
         //Retorno de mensagens
         computed:{
             messages(){
-                return this.$store.state.chat.messages
+                return this.$store.getters.messages
+                //return this.$store.state.chat.messages
             }
         },
 
@@ -38,11 +39,41 @@ import RiseLoader from 'vue-spinner/src/RiseLoader.vue'
             loadMessages (){
                 this.loading = true
                 this.$store.dispatch('loadMessages')
-                    .finally(() => this.loading = false)
+                    .finally(() => {
+                        this.loading = false
+                        this.scrollMessages()
+                    })
+        },
+
+        scrollMessages() {
+            setTimeout(() => {
+                //this.$refs.messages.scrollTo(0, this.$refs.messages.scrollHeight)
+                this.$refs.messages.scroll({
+                    top: this.$refs.messages.scrollHeight,
+                    let: 0,
+                    behavior: 'smooth'
+                })
+            }, 100)
+        }
+        },
+
+        watch:{
+            messages(){
+                this.scrollMessages()
             }
         },
+
         components:{
             RiseLoader
         }
     }
 </script>
+
+<style scoped>
+    .messages{
+        height: 400px;
+        max-height: 400px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+</style>
