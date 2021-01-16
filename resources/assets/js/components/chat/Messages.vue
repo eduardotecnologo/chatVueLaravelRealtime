@@ -3,9 +3,9 @@
         <rise-loader
             :loading="loading"
             :color="'#000'"
-            :size="size"
-            :height="height"
-            :width="width">
+            :size="'size'"
+            :height="'height'"
+            :width="'width'">
         </rise-loader>
 
         <!--Exibição de Mensagens-->

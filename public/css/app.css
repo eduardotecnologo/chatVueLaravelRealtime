@@ -10903,7 +10903,19 @@ a.text-dark:focus {
   }
 }
 
+.bg-white {
+  background-color: #000 !important;
+}
+
+.navbar-light .navbar-brand {
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
 body {
-  background: url("/public/img/bg.png");
+  background: url(/images/background.jpg?12626bff0125c56117bfaca2da6644fa);
 }
 
