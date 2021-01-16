@@ -33,7 +33,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li>
+                            <a href="{{ route('home') }}" class="nav-link">HOME</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('chat.index') }}" class="nav-link">CHAT</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
